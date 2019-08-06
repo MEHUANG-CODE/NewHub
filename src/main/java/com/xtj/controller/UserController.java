@@ -30,7 +30,7 @@ public class UserController {
     @Autowired
     @Qualifier("uService2")
     private IUserService userService;
-
+/*测试*/
     @RequestMapping("/select")
     public ModelAndView selected() {
 
