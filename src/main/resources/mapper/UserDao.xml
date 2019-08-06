@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 设置为IUserDao接口方法提供sql语句配置 -->
+    <mapper namespace="com.xtj.dao.IUserDao">
+        <select id="selectUser" resultType="User" parameterType="long">
+            SELECT * FROM user WHERE id = #{id}
+        </select>
+        <select id="findUser" resultType="User" >
+            SELECT * FROM user
+        </select>
+        <insert id="Adduser"  parameterType="User">
+            insert into user (
+                             id,
+                             email,
+                             mobile,
+                             username,
+                             role
+                     )
+                     values(#{id},
+                            #{email},
+                            #{mobile},
+                            #{username},
+                            #{role}
+                    )
+         </insert>
+        <update id="Upuser"   parameterType="User">
+            update User set
+            email=#{email},
+            mobile=#{mobile},
+            username=#{username},
+            role=#{role}
+            where id=#{id}
+        </update>
+        <delete id="Deluser"   parameterType="Integer">
+                delete from user where   id=#{id}
+        </delete >
+        <select id="FindOneUser"   resultType="User" parameterType="Integer">
+              SELECT * FROM user WHERE id = #{id}
+        </select>
+        <select id="FindByName" resultType="User" parameterType="string">
+        SELECT * FROM user where
+        <if   test="Name != null">
+            username LIKE    concat('%',#{Name},'%')
+        </if>
+        <if test="Name == ''">
+            1=1
+        </if>
+    </select>
+</mapper>
