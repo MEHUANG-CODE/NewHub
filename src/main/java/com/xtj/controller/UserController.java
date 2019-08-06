@@ -82,12 +82,12 @@ public class UserController {
 
 
 
-  /*  @RequestMapping("/equest")
+    @RequestMapping("/equest")
     public  String getRequestAndReapons(HttpRequest  request, HttpResponse response){
         HttpRequest  request1=request;
 
         HttpResponse  httpResponse=response;
 
         return "";
-    }*/
+    }
 }
